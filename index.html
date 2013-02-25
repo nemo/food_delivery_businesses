@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Food Delivery Data</title>
+    <style>
+        #control {
+          position: absolute;
+          right: 40px;
+          top: 80px;
+        }
+
+        #control p {
+          text-align: center;
+        }
+
+        #desc {
+          position: absolute;
+          right:20px;
+          top: 150px;
+          width: 400px;
+          display: none;
+          border: 1px solid black;
+          background: rgb(245, 245, 245);
+          opacity: 0.9;
+          border-radius: 10px;
+          padding: 10px;
+        }
+
+        #desc h2 {
+          text-align: center;
+        }
+        #desc p {
+          width: 100%
+        }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="desc">
+      <h2 id="name">Title</h2>
+      <p><a id="site" href="#">link</a></p>
+      <p id="model">monthly</p>
+      <p id="type">box</p>
+      <p id="category">category</p>
+      <p id="price">price</p>
+      <p id="description">controloptcol category
+      typemodelopt
+      rowcategory
+      typemodel components</p>
+      <p id="extra">extraaa</p>
+    </div>
+
+    <div id="control">
+      <div class="opt">
+        <select id="col">
+          <option value="type">Type</option>
+          <option value="category">Category</option>
+          <option value="model">Business Model</option>
+        </select>
+      </div>
+      
+      <p>V.S.</p>
+      <div class="opt">
+        <select id="row">
+          <option value="category">Category</option>
+          <option value="model">Business Model</option>
+          <option value="type">Type</option>
+        </select>
+      </div>
+    </div>
+    <script src="components/d3/d3.min.js"></script>
+    <script src="components/underscore/underscore.js"></script>
+    <script src="chart.js"></script>
+    <script type="text/javascript">
+      col_attr = null;
+      row_attr = null;
+      d3.select("#control select#col").on("change", function() {
+        chart.col_attr = this.value;
+        chart.restart();
+      });
+      d3.select("#control select#row").on("change", function() {
+        chart.row_attr = this.value;
+        chart.restart();
+      });
+    </script>
+  </body>
+</html>
+
+
